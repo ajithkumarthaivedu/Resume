@@ -1,369 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ajithkumar Thaivedu — Portfolio</title>
-  <meta name="description" content="Ajithkumar Thaivedu — MIS, Excel/VBA automation, dashboards, and professional portfolio." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Nunito:wght@700;900&display=swap" rel="stylesheet" />
+  <meta name="description" content="Portfolio of Ajithkumar Thaivedu: Resume, Dashboards, VBA, Experience, Cover Letter." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0d1117;
-      --card:#111827;
-      --text:#e5e7eb;
-      --muted:#a5b4fc;
-      --primary:#7c3aed;
-      --secondary:#06b6d4;
-      --accent:#22c55e;
-      --warning:#f59e0b;
-      --danger:#ef4444;
-      --ring:#8b5cf6;
-      --gradient:linear-gradient(135deg, #7c3aed 0%, #06b6d4 50%, #22c55e 100%);
+      --bg: #0f1020;
+      --text: #ffffff;
+      --muted: #cfd8dc;
+      --accent1: #ff6b6b;
+      --accent2: #4d96ff;
+      --accent3: #f5b971;
+      --accent4: #41ead4;
+      --card: #181a2e;
+      --border: #2a2d4a;
+      --shadow: 0 10px 30px rgba(0,0,0,0.25);
+      --radius: 16px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";}
-
-    /* Header */
+    html,body{margin:0; padding:0; background: radial-gradient(1200px 1200px at 10% 10%, #1a1c39 0%, #0f1020 60%), linear-gradient(135deg, rgba(77,150,255,0.15), rgba(255,107,107,0.15)); color:var(--text); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; min-height:100%}
+    a{color:var(--accent2); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px; margin:0 auto; padding:20px}
+    header{
+      position:sticky; top:0; z-index:1000;
+      background: rgba(15,16,32,0.75); backdrop-filter: blur(8px);
+      border-bottom:1px solid var(--border);
+    }
     .hero{
-      position:relative;
-      padding:28px 16px 20px;
-      background:
-        radial-gradient(1200px 600px at 10% 0%, rgba(124,58,237,.25), transparent 60%),
-        radial-gradient(900px 400px at 90% 0%, rgba(6,182,212,.25), transparent 60%),
-        radial-gradient(900px 500px at 50% 100%, rgba(34,197,94,.20), transparent 60%);
-      border-bottom:1px solid rgba(255,255,255,.06);
+      display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between;
+      padding:16px 0;
     }
-    .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:14px}
-    .name{
-      font-family:Nunito,Inter,system-ui;
-      font-weight:900;
-      font-size:clamp(24px,4.8vw,40px);
-      letter-spacing:.6px;
-      background:var(--gradient);
-      -webkit-background-clip:text;background-clip:text;color:transparent;
-      text-shadow:0 2px 16px rgba(124,58,237,.25);
-    }
-    .subtitle{font-weight:600;color:#cbd5e1}
-    .contacts{
-      display:flex;flex-wrap:wrap;gap:10px;margin-top:6px
-    }
+    .identity{display:flex; flex-direction:column; gap:6px}
+    .name{font-size:1.6rem; font-weight:700; letter-spacing:0.3px}
+    .contact{display:flex; flex-wrap:wrap; gap:8px}
     .chip{
-      display:inline-flex;align-items:center;gap:8px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      padding:10px 12px;border-radius:14px;color:#e5e7eb;text-decoration:none;
-      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      display:inline-flex; align-items:center; gap:8px;
+      background: linear-gradient(135deg, rgba(77,150,255,0.18), rgba(255,107,107,0.18));
+      border:1px solid var(--border); color:var(--text);
+      padding:10px 14px; border-radius:999px; box-shadow:var(--shadow);
     }
-    .chip:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(124,58,237,.25);border-color:rgba(139,92,246,.6)}
-    .chip .icon{width:18px;height:18px;display:inline-block}
-
-    /* Nav tabs */
-    .nav{
-      position:sticky;top:0;z-index:20;
-      background:rgba(17,24,39,.8);backdrop-filter:blur(8px);
-      border-bottom:1px solid rgba(255,255,255,.08);
+    .chip button, .chip a.action{
+      background: #212445; color:#fff; border:1px solid #2e325e; border-radius:999px;
+      padding:8px 12px; cursor:pointer; transition:all .2s ease; font-weight:600
     }
-    .nav-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;padding:10px 12px}
+    .chip button:hover, .chip a.action:hover{transform:translateY(-1px); background:#2a2e5e}
+    .chip .label{opacity:0.9}
+    /* Nav */
+    .tabs{
+      display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 16px 0;
+    }
     .tab{
-      appearance:none;border:none;cursor:pointer;
-      padding:10px 14px;border-radius:12px;
-      color:#e5e7eb;background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      font-weight:600;transition:all .15s ease;
+      background: linear-gradient(135deg, rgba(65,234,212,0.15), rgba(245,185,113,0.15));
+      border:1px solid var(--border); padding:10px 16px; border-radius:12px; cursor:pointer;
+      font-weight:600; color:#fff; transition:all .2s ease;
     }
-    .tab.active{background:var(--gradient);border-color:transparent;color:white;box-shadow:0 6px 20px rgba(124,58,237,.35)}
-    .tab:hover{transform:translateY(-1px)}
-
-    /* Content sections */
-    .section{display:none}
+    .tab.active{background:linear-gradient(135deg, var(--accent2), var(--accent1)); border-color:transparent; box-shadow:var(--shadow)}
+    .sections{margin-top:6px}
+    .section{
+      display:none; background:linear-gradient(180deg, rgba(24,26,46,0.8), rgba(24,26,46,0.9));
+      border:1px solid var(--border); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow);
+    }
     .section.active{display:block}
-    .container{max-width:1100px;margin:0 auto;padding:16px}
-    .card{
-      background:var(--card);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:16px;padding:16px;
-      box-shadow:0 10px 30px rgba(0,0,0,.25);
-    }
-    .section-title{font-size:20px;font-weight:800;margin:0 0 12px;color:#dbeafe}
-
-    /* Media frames */
-    iframe{
-      width:100%;height:70vh;min-height:420px;border:none;border-radius:12px;
-      background:#0b1020;
-    }
-    .media-grid{
-      display:grid;grid-template-columns:1fr;gap:14px
-    }
-    @media (min-width:700px){.media-grid{grid-template-columns:1fr 1fr}}
-    img.media{
-      width:100%;height:auto;border-radius:12px;border:1px solid rgba(255,255,255,.08);
-      background:#0b1020;display:block;
-    }
-
-    /* Utility bar */
-    .bar{
-      display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px
-    }
-    .btn{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:10px 14px;border-radius:12px;font-weight:700;
-      color:#0b1020;background:#a5b4fc;border:1px solid #818cf8;text-decoration:none;
-      transition:transform .12s ease, box-shadow .12s ease;
-    }
-    .btn.secondary{background:#34d399;border-color:#10b981;color:#052015}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(165,180,252,.35)}
-
-    /* Blink text (subtle) */
+    /* Cards and media */
+    .card{background:#1b1e3a; border:1px solid var(--border); border-radius:14px; padding:12px; box-shadow:var(--shadow)}
+    .grid{display:grid; gap:12px}
+    @media(min-width:700px){ .grid.cols-2{grid-template-columns:1fr 1fr} }
+    iframe, video, img{width:100%; border:1px solid var(--border); border-radius:12px; background:#0a0b1a}
+    .pdf-frame{height:70vh}
+    .video-frame{height:420px}
+    /* Blinking text */
     .blink{
-      font-weight:800;color:#fef3c7;background:rgba(245,158,11,.12);
-      border:1px dashed rgba(245,158,11,.45);padding:8px 12px;border-radius:12px;
-      display:inline-block;animation:blink 2.4s ease-in-out infinite;
+      font-weight:700; background:linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent4), var(--accent3));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      animation: blink 1.6s steps(2, start) infinite;
     }
-    @keyframes blink{
-      0%,60%,100%{opacity:1} 30%{opacity:.45}
-    }
-
+    @keyframes blink{ 50%{ opacity:0.15 } }
     /* Floating WhatsApp */
-    .whatsapp{
-      position:fixed;right:16px;bottom:16px;z-index:50;
-      width:56px;height:56px;border-radius:50%;
-      background:#25D366;display:flex;align-items:center;justify-content:center;
-      box-shadow:0 10px 24px rgba(37,211,102,.45);
-      border:2px solid #128C7E;
+    .whatsapp-float{
+      position:fixed; right:16px; bottom:16px; z-index:1001;
+      width:56px; height:56px; border-radius:50%;
+      background:#25D366; display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 12px 30px rgba(37,211,102,0.35); transition:transform .2s ease;
     }
-    .whatsapp:hover{transform:translateY(-2px)}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .footer{padding:28px 16px;color:#9ca3af;text-align:center}
+    .whatsapp-float:hover{transform:translateY(-2px)}
+    .wa-icon{width:28px; height:28px; display:block}
+    /* Header CTA buttons in sections */
+    .actions{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 10px 0}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px; padding:10px 14px;
+      border-radius:12px; background:#2a2e5e; border:1px solid #3a3f7a; color:#fff; font-weight:600; cursor:pointer;
+    }
+    .btn:hover{background:#383e87}
+    /* Helper */
+    .muted{color:var(--muted); font-size:0.95rem}
+    .spacer{height:8px}
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="name">Ajithkumar Thaivedu</div>
-      <div class="subtitle">Senior MIS Executive • Excel/VBA Automation • Dashboard Creation</div>
-
-      <div class="contacts">
-        <a class="chip" href="mailto:ajithkumarthaivedu@gmail.com" aria-label="Email Ajithkumar">
-          <span class="icon">📧</span>
-          <span>ajithkumarthaivedu@gmail.com</span>
-        </a>
-        <a class="chip" href="tel:+916304909328" aria-label="Call Ajithkumar">
-          <span class="icon">📞</span>
-          <span>+91 63049 09328</span>
-        </a>
-        <a class="chip" href="mailto:ajithkumarthaivedu@gmail.com" aria-label="Send email">
-          <span class="icon">✉️</span>
-          <span>Mail</span>
-        </a>
-        <a class="chip" href="tel:+916304909328" aria-label="Call now">
-          <span class="icon">📱</span>
-          <span>Call</span>
-        </a>
+  <header>
+    <div class="container">
+      <div class="hero">
+        <div class="identity">
+          <div class="name">Ajithkumar Thaivedu</div>
+          <div class="muted">Senior MIS professional — Excel/VBA automation, dashboards, mobile-first presentation</div>
+        </div>
+        <div class="contact">
+          <div class="chip">
+            <span class="label">ajithkumarthaivedu@gmail.com</span>
+            <a class="action" id="mailtoBtn" href="mailto:ajithkumarthaivedu@gmail.com" aria-label="Email Ajithkumar">Mail</a>
+          </div>
+          <div class="chip">
+            <span class="label">+91 6304909328</span>
+            <a class="action" id="callBtn" href="tel:+916304909328" aria-label="Call Ajithkumar">Call</a>
+          </div>
+        </div>
       </div>
+      <nav class="tabs" role="tablist" aria-label="Portfolio sections">
+        <button class="tab active" role="tab" aria-selected="true" aria-controls="resume">Resume</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="dashboard">Sample Dashboard</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="vba">VBA</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="experience">Experience</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="cover">Cover Letter</button>
+      </nav>
     </div>
   </header>
 
-  <!-- Tabs -->
-  <nav class="nav" aria-label="Primary">
-    <div class="nav-inner">
-      <button class="tab active" data-target="resume">Resume</button>
-      <button class="tab" data-target="dashboard">Sample Dashboard</button>
-      <button class="tab" data-target="vba">VBA</button>
-      <button class="tab" data-target="experience">Experience</button>
-      <button class="tab" data-target="cover">Cover Letter</button>
-    </div>
-  </nav>
-
   <main class="container">
-    <!-- Resume -->
-    <section id="resume" class="section active">
+    <section id="resume" class="section active" role="tabpanel" aria-labelledby="Resume">
+      <div class="actions">
+        <a class="btn" id="resumeDownloadTop" href="#" download>Download resume (PDF)</a>
+      </div>
       <div class="card">
-        <h2 class="section-title">Resume</h2>
-        <div class="bar">
-          <a id="resumeDownloadTop" class="btn" href="#" download>⬇️ Download as PDF</a>
-          <span class="blink">I am good in Dashboard creation, have experience of 50+ dashboards creation to the business Needs</span>
+        <iframe id="resumeFrame" class="pdf-frame" title="Resume preview" loading="lazy" allow="autoplay"></iframe>
+      </div>
+      <div class="actions">
+        <a class="btn" id="resumeDownloadBottom" href="#" download>Download resume (PDF)</a>
+      </div>
+    </section>
+
+    <section id="dashboard" class="section" role="tabpanel" aria-labelledby="Sample Dashboard">
+      <p class="blink">I am good in Dashboard creation, have experience of 50+ dashboards creation to the business Needs</p>
+      <div class="grid cols-2">
+        <div class="card">
+          <iframe id="dashVideo" class="video-frame" title="Dashboard video" loading="lazy" allow="autoplay"></iframe>
         </div>
-        <iframe id="resumeFrame" title="Resume PDF" loading="lazy" allow="fullscreen"></iframe>
-        <div class="bar" style="margin-top:12px">
-          <a id="resumeDownloadBottom" class="btn secondary" href="#" download>⬇️ Download as PDF</a>
+        <div class="card">
+          <img id="dashShot1" alt="Dashboard screenshot 1" loading="lazy">
+          <div class="spacer"></div>
+          <img id="dashShot2" alt="Dashboard screenshot 2" loading="lazy">
+          <div class="spacer"></div>
+          <img id="dashShot3" alt="Dashboard screenshot 3" loading="lazy">
         </div>
       </div>
     </section>
 
-    <!-- Sample Dashboard -->
-    <section id="dashboard" class="section">
-      <div class="card">
-        <h2 class="section-title">Sample dashboard</h2>
-        <div class="bar">
-          <span class="blink">I am good in Dashboard creation, have experience of 50+ dashboards creation to the business Needs</span>
+    <section id="vba" class="section" role="tabpanel" aria-labelledby="VBA">
+      <p class="blink">Custom functions are created to ease the workflow, exceed the limitations of Excel, and solve complicated logics.</p>
+      <div class="grid cols-2">
+        <div class="card">
+          <img id="vbaShot1" alt="VBA screenshot 1" loading="lazy">
+          <div class="spacer"></div>
+          <img id="vbaShot2" alt="VBA screenshot 2" loading="lazy">
         </div>
-        <div class="media-grid">
-          <div>
-            <h3 class="section-title" style="font-size:16px;margin-top:0">Demo video</h3>
-            <iframe id="dashVideo" title="Dashboard video" loading="lazy" allow="autoplay; fullscreen"></iframe>
-          </div>
-          <div>
-            <h3 class="section-title" style="font-size:16px;margin-top:0">Screenshots</h3>
-            <img id="dashSnap1" class="media" alt="Dashboard snapshot 1" loading="lazy" />
-            <img id="dashSnap2" class="media" alt="Dashboard snapshot 2" loading="lazy" style="margin-top:12px" />
-          </div>
+        <div class="card">
+          <iframe id="vbaFile" class="pdf-frame" title="VBA custom function preview" loading="lazy"></iframe>
         </div>
       </div>
     </section>
 
-    <!-- VBA -->
-    <section id="vba" class="section">
-      <div class="card">
-        <h2 class="section-title">VBA</h2>
-        <div class="bar">
-          <span class="blink">Custom functions are created to ease the workflow, exceed Excel limitations, and solve complicated logics</span>
-        </div>
-        <div class="media-grid">
-          <div>
-            <h3 class="section-title" style="font-size:16px;margin-top:0">Screenshots</h3>
-            <img id="vbaSnap1" class="media" alt="VBA snapshot 1" loading="lazy" />
-            <img id="vbaSnap2" class="media" alt="VBA snapshot 2" loading="lazy" style="margin-top:12px" />
-          </div>
-          <div>
-            <h3 class="section-title" style="font-size:16px;margin-top:0">Custom function (PDF)</h3>
-            <iframe id="vbaPdf" title="VBA custom function PDF" loading="lazy"></iframe>
-          </div>
+    <section id="experience" class="section" role="tabpanel" aria-labelledby="Experience">
+      <div class="grid">
+        <div class="card">
+          <h3 style="margin:0 0 8px 0;">Experience</h3>
+          <ul>
+            <li><strong>Motherhood Hospitals (Rhea Healthcare Pvt Ltd):</strong> Sr. MIS Executive | Jun 2024 – Present — Automated daily/weekly/monthly reports using VBA macros; managed workflow analysis; designed dashboards for management and client reporting.</li>
+            <li><strong>Ileads Auxiliary Services Pvt Ltd:</strong> Sr. MIS Executive | Mar 2024 – May 2024 — Delivered client reports for INDKAL, Sodexo, Visit Health.</li>
+            <li><strong>Teleperformance:</strong> Sr. MIS Executive | Aug 2021 – Mar 2024 — MIS reporting for Flipkart Easy Credit & Toyota Financial Services; built efficiency trackers and workflow dashboards.</li>
+            <li><strong>Hotel Saravana Bhavan:</strong> HR MIS Executive | Jul 2019 – Jul 2021 — HR data reporting and employee workflow analysis.</li>
+            <li><strong>Dinesh Engineering Industries:</strong> Maintenance Incharge | Aug 2016 – Jun 2019.</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- Experience -->
-    <section id="experience" class="section">
-      <div class="card">
-        <h2 class="section-title">Experience</h2>
-        <div style="display:grid;gap:12px">
-          <div class="card" style="background:#0f172a;border-color:rgba(124,58,237,.35)">
-            <strong>Motherhood Hospitals (Rhea Healthcare Pvt Ltd)</strong><br/>
-            Sr. MIS Executive | Jun 2024 – Present<br/>
-            Automated daily, weekly, and monthly reports using VBA macros<br/>
-            Managed workflow analysis<br/>
-            Designed dashboards for management and client reporting
-          </div>
-          <div class="card" style="background:#0f172a;border-color:rgba(6,182,212,.35)">
-            <strong>Ileads Auxiliary Services Pvt Ltd</strong><br/>
-            Sr. MIS Executive | Mar 2024 – May 2024<br/>
-            Delivered client reports for INDKAL, Sodexo, Visit Health
-          </div>
-          <div class="card" style="background:#0f172a;border-color:rgba(34,197,94,.35)">
-            <strong>Teleperformance</strong><br/>
-            Sr. MIS Executive | Aug 2021 – Mar 2024<br/>
-            MIS reporting for Flipkart Easy Credit & Toyota Financial Services<br/>
-            Built efficiency trackers and workflow dashboards
-          </div>
-          <div class="card" style="background:#0f172a;border-color:rgba(245,158,11,.35)">
-            <strong>Hotel Saravana Bhavan</strong><br/>
-            HR MIS Executive | Jul 2019 – Jul 2021<br/>
-            HR data reporting and employee workflow analysis
-          </div>
-          <div class="card" style="background:#0f172a;border-color:rgba(239,68,68,.35)">
-            <strong>Dinesh Engineering Industries</strong><br/>
-            Maintenance Incharge | Aug 2016 – Jun 2019
-          </div>
-        </div>
+    <section id="cover" class="section" role="tabpanel" aria-labelledby="Cover Letter">
+      <div class="actions">
+        <a class="btn" id="coverDownloadTop" href="#" download>Download cover letter (PDF)</a>
       </div>
-    </section>
-
-    <!-- Cover Letter -->
-    <section id="cover" class="section">
       <div class="card">
-        <h2 class="section-title">Cover letter</h2>
-        <div class="bar">
-          <a id="coverDownload" class="btn" href="#" download>⬇️ Download cover letter</a>
-        </div>
-        <iframe id="coverFrame" title="Cover letter PDF" loading="lazy"></iframe>
+        <iframe id="coverFrame" class="pdf-frame" title="Cover letter preview" loading="lazy" allow="autoplay"></iframe>
+      </div>
+      <div class="actions">
+        <a class="btn" id="coverDownloadBottom" href="#" download>Download cover letter (PDF)</a>
       </div>
     </section>
   </main>
 
   <!-- Floating WhatsApp -->
-  <a class="whatsapp" href="https://wa.me/916304909328" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    <span class="sr-only">WhatsApp</span>
-    <!-- Minimal WhatsApp logo (SVG) -->
-    <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-      <path fill="#fff" d="M20.52 3.48A9.86 9.86 0 0 0 12 1a9.99 9.99 0 0 0-8.63 14.93L2 23l7.27-1.9A10 10 0 0 0 22 12a9.86 9.86 0 0 0-1.48-8.52zM12 21.07c-1.64 0-3.25-.46-4.66-1.34l-.33-.2-4.06 1.06 1.09-3.95-.21-.34A8.07 8.07 0 0 1 20.07 12 8.07 8.07 0 0 1 12 21.07zm4.62-6.09c-.25-.12-1.47-.73-1.69-.82-.22-.08-.38-.12-.54.12-.16.25-.62.82-.76.99-.14.16-.28.19-.52.07-.25-.12-1.04-.38-1.98-1.2-.73-.65-1.23-1.45-1.38-1.69-.14-.25-.02-.38.1-.51.1-.1.25-.28.36-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.54-1.3-.74-1.77-.2-.48-.4-.41-.54-.41h-.47c-.16 0-.41.06-.63.31-.22.25-.83.81-.83 1.96s.85 2.29.97 2.45c.12.16 1.67 2.55 4.06 3.58.57.25 1.01.41 1.35.53.57.18 1.09.15 1.5.09.46-.07 1.47-.6 1.68-1.18.21-.57.21-1.06.15-1.18-.06-.12-.24-.19-.49-.31z"/>
+  <a class="whatsapp-float" href="https://wa.me/916304909328?text=Hi%20Ajithkumar%2C%20saw%20your%20portfolio%20and%20would%20love%20to%20connect." target="_blank" rel="noopener" aria-label="WhatsApp Ajithkumar">
+    <!-- WhatsApp SVG icon -->
+    <svg class="wa-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path fill="#fff" d="M19.4 17.6c-.3.5-1.7 1.6-2.3 1.7-.6.1-1.5.1-2.4-.5-1.3-.8-2.1-2.2-2.2-2.3-.1-.1-.5-.7-.5-1.3 0-.6.3-.9.5-1.1.1-.1.3-.3.5-.3h.4c.1 0 .3 0 .4.3.1.3.5 1.2.6 1.3.1.1.1.3 0 .5-.2.4-.5.6-.3.9.3.5.9 1.2 1.5 1.6.7.5 1.2.7 1.6.5.4-.2.5-.5.7-.8.2-.3.3-.5.5-.4.1 0 .7.3.9.4.2.1.5.2.6.4.1.2.1.8-.2 1.3zM27.5 16c0 6.4-5.2 11.5-11.5 11.5-2 0-3.9-.5-5.5-1.4l-3.8 1.2 1.2-3.7c-1-1.7-1.6-3.7-1.6-5.7C6.3 9.7 11.4 4.5 17.8 4.5S27.5 9.7 27.5 16z"/>
     </svg>
   </a>
 
-  <footer class="footer">© Ajithkumar Thaivedu</footer>
-
   <script>
-    // All Google Drive links defined up-front (single source of truth)
+    // ----- Centralized Google Drive links (declare once at start) -----
     const links = {
       resume: "https://drive.google.com/file/d/1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq/view?usp=drivesdk",
       dashVideo: "https://drive.google.com/file/d/1aPtv--5JDlneq-1kHphD4iDE5uWwffGU/view?usp=drivesdk",
-      dashSnap1: "https://drive.google.com/file/d/1Rfrm-NshB4xBEQ2ULzqGFOWYAK7Kk3Fq/view?usp=drivesdk",
-      dashSnap2: "https://drive.google.com/file/d/1lk6vUnpQIdy1kBRpRcdlD67bB7Q0NCW7/view?usp=drivesdk",
-      vbaSnap1: "https://drive.google.com/file/d/1qpKb1R6a9qhbhJEHrbpAUudUlFty6mwz/view?usp=drivesdk",
-      vbaSnap2: "https://drive.google.com/file/d/1vBS5-3Ap9bnsPZAfM5W-BTQUWE3KrNsn/view?usp=drivesdk",
-      vbaPdf: "https://drive.google.com/file/d/1n3W_fRzBJBbfQz1Q_HSwJzrvVxhfNC2b/view?usp=drivesdk",
-      cover: "https://drive.google.com/file/d/1kNW4vyr91DgQZwGrxKWb83aEwESlQXPi/view?usp=drivesdk"
+      dashShot1: "https://drive.google.com/file/d/1sDlYzgpTO9QC9d0aRf7Lwj6pweP8_p7E/view?usp=drivesdk",
+      dashShot2: "https://drive.google.com/file/d/1Rfrm-NshB4xBEQ2ULzqGFOWYAK7Kk3Fq/view?usp=drivesdk",
+      dashShot3: "https://drive.google.com/file/d/1lk6vUnpQIdy1kBRpRcdlD67bB7Q0NCW7/view?usp=drivesdk",
+      vbaShot1: "https://drive.google.com/file/d/1qpKb1R6a9qhbhJEHrbpAUudUlFty6mwz/view?usp=drivesdk",
+      vbaShot2: "https://drive.google.com/file/d/1vBS5-3Ap9bnsPZAfM5W-BTQUWE3KrNsn/view?usp=drivesdk",
+      vbaFile:  "https://drive.google.com/file/d/1n3WfRzBJBbfQz1QHSwJzrvVxhfNC2b/view?usp=drivesdk",
+      cover:    "https://drive.google.com/file/d/1kNW4vyr91DgQZwGrxKWb83aEwESlQXPi/view?usp=drivesdk"
     };
 
-    // Helpers to convert Drive view links -> preview iframe and direct download
-    function extractFileId(driveUrl){
-      const m = driveUrl.match(/\/d\/([^/]+)\//);
+    // ----- Helpers: extract fileId and build preview/download urls -----
+    function getFileId(driveUrl){
+      const m = driveUrl.match(/\/file\/d\/([^/]+)\//);
       return m ? m[1] : null;
     }
     function drivePreviewUrl(driveUrl){
-      const id = extractFileId(driveUrl);
+      const id = getFileId(driveUrl);
       return id ? `https://drive.google.com/file/d/${id}/preview` : driveUrl;
     }
     function driveDownloadUrl(driveUrl){
-      const id = extractFileId(driveUrl);
+      const id = getFileId(driveUrl);
       return id ? `https://drive.google.com/uc?export=download&id=${id}` : driveUrl;
     }
-    function driveDirectImage(driveUrl){
-      const id = extractFileId(driveUrl);
+    function driveImageUrl(driveUrl){
+      const id = getFileId(driveUrl);
       return id ? `https://drive.google.com/uc?export=view&id=${id}` : driveUrl;
     }
 
-    // Populate Resume
-    const resumeFrame = document.getElementById('resumeFrame');
-    const resumeDownloadTop = document.getElementById('resumeDownloadTop');
-    const resumeDownloadBottom = document.getElementById('resumeDownloadBottom');
-    resumeFrame.src = drivePreviewUrl(links.resume);
-    resumeDownloadTop.href = driveDownloadUrl(links.resume);
-    resumeDownloadBottom.href = driveDownloadUrl(links.resume);
+    // ----- Tab switching: lazy-load media only when opened -----
+    const tabButtons = Array.from(document.querySelectorAll(".tab"));
+    const sections = {
+      resume: document.getElementById("resume"),
+      dashboard: document.getElementById("dashboard"),
+      vba: document.getElementById("vba"),
+      experience: document.getElementById("experience"),
+      cover: document.getElementById("cover")
+    };
 
-    // Populate Dashboard
-    document.getElementById('dashVideo').src = drivePreviewUrl(links.dashVideo);
-    document.getElementById('dashSnap1').src = driveDirectImage(links.dashSnap1);
-    document.getElementById('dashSnap2').src = driveDirectImage(links.dashSnap2);
-
-    // Populate VBA
-    document.getElementById('vbaSnap1').src = driveDirectImage(links.vbaSnap1);
-    document.getElementById('vbaSnap2').src = driveDirectImage(links.vbaSnap2);
-    document.getElementById('vbaPdf').src = drivePreviewUrl(links.vbaPdf);
-
-    // Populate Cover letter
-    document.getElementById('coverFrame').src = drivePreviewUrl(links.cover);
-    document.getElementById('coverDownload').href = driveDownloadUrl(links.cover);
-
-    // Tabs behavior
-    const tabs = document.querySelectorAll('.tab');
-    const sections = document.querySelectorAll('.section');
-    tabs.forEach(tab=>{
-      tab.addEventListener('click', ()=>{
-        tabs.forEach(t=>t.classList.remove('active'));
-        sections.forEach(s=>s.classList.remove('active'));
-        tab.classList.add('active');
-        const target = tab.dataset.target;
-        document.getElementById(target).classList.add('active');
-        // optional: scroll to top of content
-        window.scrollTo({ top: document.querySelector('.nav').offsetTop, behavior: 'smooth' });
+    tabButtons.forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        const target = btn.getAttribute("aria-controls");
+        // update tabs
+        tabButtons.forEach(b=>{ b.classList.toggle("active", b===btn); b.setAttribute("aria-selected", b===btn ? "true":"false"); });
+        // update sections
+        Object.entries(sections).forEach(([id, el])=> el.classList.toggle("active", id===target));
+        // load media on-demand
+        if(target==="resume"){ loadResume(); }
+        if(target==="dashboard"){ loadDashboard(); }
+        if(target==="vba"){ loadVBA(); }
+        if(target==="cover"){ loadCover(); }
       });
     });
 
-    // Progressive enhancement: ensure tel and wa.me use India code
-    // Already set: tel:+91..., wa.me/91...
+    // ----- Loaders -----
+    let resumeLoaded=false, dashboardLoaded=false, vbaLoaded=false, coverLoaded=false;
+
+    function loadResume(){
+      if(resumeLoaded) return;
+      const frame = document.getElementById("resumeFrame");
+      frame.src = drivePreviewUrl(links.resume);
+      const top = document.getElementById("resumeDownloadTop");
+      const bottom = document.getElementById("resumeDownloadBottom");
+      const dl = driveDownloadUrl(links.resume);
+      top.href = dl; bottom.href = dl;
+      resumeLoaded = true;
+    }
+
+    function loadDashboard(){
+      if(dashboardLoaded) return;
+      document.getElementById("dashVideo").src = drivePreviewUrl(links.dashVideo);
+      document.getElementById("dashShot1").src = driveImageUrl(links.dashShot1);
+      document.getElementById("dashShot2").src = driveImageUrl(links.dashShot2);
+      document.getElementById("dashShot3").src = driveImageUrl(links.dashShot3);
+      dashboardLoaded = true;
+    }
+
+    function loadVBA(){
+      if(vbaLoaded) return;
+      document.getElementById("vbaShot1").src = driveImageUrl(links.vbaShot1);
+      document.getElementById("vbaShot2").src = driveImageUrl(links.vbaShot2);
+      document.getElementById("vbaFile").src  = drivePreviewUrl(links.vbaFile);
+      vbaLoaded = true;
+    }
+
+    function loadCover(){
+      if(coverLoaded) return;
+      const frame = document.getElementById("coverFrame");
+      frame.src = drivePreviewUrl(links.cover);
+      const top = document.getElementById("coverDownloadTop");
+      const bottom = document.getElementById("coverDownloadBottom");
+      const dl = driveDownloadUrl(links.cover);
+      top.href = dl; bottom.href = dl;
+      coverLoaded = true;
+    }
+
+    // Load resume initially (default active tab)
+    loadResume();
+
+    // ----- Improve reliability: open drive previews in their iframes only -----
+    // Note: Using Drive preview for video/PDF ensures correct playback and scrolling across devices.
   </script>
 </body>
 </html>
