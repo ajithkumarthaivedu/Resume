@@ -1,87 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ajithkumar Thaivedu Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ajithkumar Thaivedu — Portfolio</title>
+  <meta name="description" content="Ajithkumar Thaivedu — MIS, Excel/VBA automation, dashboards, and professional portfolio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Nunito:wght@700;900&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: Arial, sans-serif; margin:0; background: linear-gradient(135deg, #ffecd2, #fcb69f); }
-    header { background: #ff6f61; color: white; padding: 20px; text-align: center; }
-    nav { display: flex; justify-content: center; background: #333; }
-    nav a { color: white; padding: 14px 20px; text-decoration: none; }
-    nav a:hover { background: #ff6f61; }
-    section { padding: 20px; }
-    .contact { text-align: center; margin: 20px; }
-    .contact a { margin: 0 10px; text-decoration: none; color: #ff6f61; font-weight: bold; }
-    .blink { animation: blink 1.5s infinite; color: #d32f2f; font-weight: bold; }
-    @keyframes blink { 50% { opacity: 0; } }
-    iframe { width: 100%; height: 600px; border: none; }
-    .download-btn { display: block; margin: 10px auto; padding: 10px 20px; background: #ff6f61; color: white; text-align: center; text-decoration: none; border-radius: 5px; }
-    .floating-whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 15px; border-radius: 50%; font-size: 20px; text-decoration: none; }
+    :root{
+      --bg:#0d1117;
+      --card:#111827;
+      --text:#e5e7eb;
+      --muted:#a5b4fc;
+      --primary:#7c3aed;
+      --secondary:#06b6d4;
+      --accent:#22c55e;
+      --warning:#f59e0b;
+      --danger:#ef4444;
+      --ring:#8b5cf6;
+      --gradient:linear-gradient(135deg, #7c3aed 0%, #06b6d4 50%, #22c55e 100%);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";}
+
+    /* Header */
+    .hero{
+      position:relative;
+      padding:28px 16px 20px;
+      background:
+        radial-gradient(1200px 600px at 10% 0%, rgba(124,58,237,.25), transparent 60%),
+        radial-gradient(900px 400px at 90% 0%, rgba(6,182,212,.25), transparent 60%),
+        radial-gradient(900px 500px at 50% 100%, rgba(34,197,94,.20), transparent 60%);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:14px}
+    .name{
+      font-family:Nunito,Inter,system-ui;
+      font-weight:900;
+      font-size:clamp(24px,4.8vw,40px);
+      letter-spacing:.6px;
+      background:var(--gradient);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+      text-shadow:0 2px 16px rgba(124,58,237,.25);
+    }
+    .subtitle{font-weight:600;color:#cbd5e1}
+    .contacts{
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:6px
+    }
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      padding:10px 12px;border-radius:14px;color:#e5e7eb;text-decoration:none;
+      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .chip:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(124,58,237,.25);border-color:rgba(139,92,246,.6)}
+    .chip .icon{width:18px;height:18px;display:inline-block}
+
+    /* Nav tabs */
+    .nav{
+      position:sticky;top:0;z-index:20;
+      background:rgba(17,24,39,.8);backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;padding:10px 12px}
+    .tab{
+      appearance:none;border:none;cursor:pointer;
+      padding:10px 14px;border-radius:12px;
+      color:#e5e7eb;background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      font-weight:600;transition:all .15s ease;
+    }
+    .tab.active{background:var(--gradient);border-color:transparent;color:white;box-shadow:0 6px 20px rgba(124,58,237,.35)}
+    .tab:hover{transform:translateY(-1px)}
+
+    /* Content sections */
+    .section{display:none}
+    .section.active{display:block}
+    .container{max-width:1100px;margin:0 auto;padding:16px}
+    .card{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;padding:16px;
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    .section-title{font-size:20px;font-weight:800;margin:0 0 12px;color:#dbeafe}
+
+    /* Media frames */
+    iframe{
+      width:100%;height:70vh;min-height:420px;border:none;border-radius:12px;
+      background:#0b1020;
+    }
+    .media-grid{
+      display:grid;grid-template-columns:1fr;gap:14px
+    }
+    @media (min-width:700px){.media-grid{grid-template-columns:1fr 1fr}}
+    img.media{
+      width:100%;height:auto;border-radius:12px;border:1px solid rgba(255,255,255,.08);
+      background:#0b1020;display:block;
+    }
+
+    /* Utility bar */
+    .bar{
+      display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px
+    }
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 14px;border-radius:12px;font-weight:700;
+      color:#0b1020;background:#a5b4fc;border:1px solid #818cf8;text-decoration:none;
+      transition:transform .12s ease, box-shadow .12s ease;
+    }
+    .btn.secondary{background:#34d399;border-color:#10b981;color:#052015}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(165,180,252,.35)}
+
+    /* Blink text (subtle) */
+    .blink{
+      font-weight:800;color:#fef3c7;background:rgba(245,158,11,.12);
+      border:1px dashed rgba(245,158,11,.45);padding:8px 12px;border-radius:12px;
+      display:inline-block;animation:blink 2.4s ease-in-out infinite;
+    }
+    @keyframes blink{
+      0%,60%,100%{opacity:1} 30%{opacity:.45}
+    }
+
+    /* Floating WhatsApp */
+    .whatsapp{
+      position:fixed;right:16px;bottom:16px;z-index:50;
+      width:56px;height:56px;border-radius:50%;
+      background:#25D366;display:flex;align-items:center;justify-content:center;
+      box-shadow:0 10px 24px rgba(37,211,102,.45);
+      border:2px solid #128C7E;
+    }
+    .whatsapp:hover{transform:translateY(-2px)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .footer{padding:28px 16px;color:#9ca3af;text-align:center}
   </style>
 </head>
 <body>
+  <!-- Header -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="name">Ajithkumar Thaivedu</div>
+      <div class="subtitle">Senior MIS Executive • Excel/VBA Automation • Dashboard Creation</div>
 
-<header>
-  <h1>Ajithkumar Thaivedu</h1>
-</header>
+      <div class="contacts">
+        <a class="chip" href="mailto:ajithkumarthaivedu@gmail.com" aria-label="Email Ajithkumar">
+          <span class="icon">📧</span>
+          <span>ajithkumarthaivedu@gmail.com</span>
+        </a>
+        <a class="chip" href="tel:+916304909328" aria-label="Call Ajithkumar">
+          <span class="icon">📞</span>
+          <span>+91 63049 09328</span>
+        </a>
+        <a class="chip" href="mailto:ajithkumarthaivedu@gmail.com" aria-label="Send email">
+          <span class="icon">✉️</span>
+          <span>Mail</span>
+        </a>
+        <a class="chip" href="tel:+916304909328" aria-label="Call now">
+          <span class="icon">📱</span>
+          <span>Call</span>
+        </a>
+      </div>
+    </div>
+  </header>
 
-<div class="contact">
-  📧 <span>ajithkumarthaivedu@gmail.com</span>
-  <a href="mailto:ajithkumarthaivedu@gmail.com">Mail Me</a> |
-  📞 <span>6304909328</span>
-  <a href="tel:6304909328">Call Me</a>
-</div>
+  <!-- Tabs -->
+  <nav class="nav" aria-label="Primary">
+    <div class="nav-inner">
+      <button class="tab active" data-target="resume">Resume</button>
+      <button class="tab" data-target="dashboard">Sample Dashboard</button>
+      <button class="tab" data-target="vba">VBA</button>
+      <button class="tab" data-target="experience">Experience</button>
+      <button class="tab" data-target="cover">Cover Letter</button>
+    </div>
+  </nav>
 
-<nav>
-  <a href="#resume">Resume</a>
-  <a href="#dashboard">Sample Dashboard</a>
-  <a href="#vba">VBA</a>
-  <a href="#experience">Experience</a>
-  <a href="#coverletter">Cover Letter</a>
-</nav>
+  <main class="container">
+    <!-- Resume -->
+    <section id="resume" class="section active">
+      <div class="card">
+        <h2 class="section-title">Resume</h2>
+        <div class="bar">
+          <a id="resumeDownloadTop" class="btn" href="#" download>⬇️ Download as PDF</a>
+          <span class="blink">I am good in Dashboard creation, have experience of 50+ dashboards creation to the business Needs</span>
+        </div>
+        <iframe id="resumeFrame" title="Resume PDF" loading="lazy" allow="fullscreen"></iframe>
+        <div class="bar" style="margin-top:12px">
+          <a id="resumeDownloadBottom" class="btn secondary" href="#" download>⬇️ Download as PDF</a>
+        </div>
+      </div>
+    </section>
 
-<section id="resume">
-  <h2>Resume</h2>
-  <a class="download-btn" href="https://drive.google.com/file/d/1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq/view?usp=drivesdk" target="_blank">Download Resume PDF</a>
-  <iframe src="https://drive.google.com/file/d/1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq/preview"></iframe>
-  <a class="download-btn" href="https://drive.google.com/file/d/1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq/view?usp=drivesdk" target="_blank">Download Resume PDF</a>
-</section>
+    <!-- Sample Dashboard -->
+    <section id="dashboard" class="section">
+      <div class="card">
+        <h2 class="section-title">Sample dashboard</h2>
+        <div class="bar">
+          <span class="blink">I am good in Dashboard creation, have experience of 50+ dashboards creation to the business Needs</span>
+        </div>
+        <div class="media-grid">
+          <div>
+            <h3 class="section-title" style="font-size:16px;margin-top:0">Demo video</h3>
+            <iframe id="dashVideo" title="Dashboard video" loading="lazy" allow="autoplay; fullscreen"></iframe>
+          </div>
+          <div>
+            <h3 class="section-title" style="font-size:16px;margin-top:0">Screenshots</h3>
+            <img id="dashSnap1" class="media" alt="Dashboard snapshot 1" loading="lazy" />
+            <img id="dashSnap2" class="media" alt="Dashboard snapshot 2" loading="lazy" style="margin-top:12px" />
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id="dashboard">
-  <h2>Sample Dashboard</h2>
-  <p class="blink">I am good in Dashboard creation, have experience of 50+ dashboards creation to the business needs</p>
-  <iframe src="https://drive.google.com/file/d/1aPtv--5JDlneq-1kHphD4iDE5uWwffGU/preview"></iframe>
-  <img src="https://drive.google.com/uc?export=view&id=1Rfrm-NshB4xBEQ2ULzqGFOWYAK7Kk3Fq" width="100%">
-  <img src="https://drive.google.com/uc?export=view&id=1lk6vUnpQIdy1kBRpRcdlD67bB7Q0NCW7" width="100%">
-</section>
+    <!-- VBA -->
+    <section id="vba" class="section">
+      <div class="card">
+        <h2 class="section-title">VBA</h2>
+        <div class="bar">
+          <span class="blink">Custom functions are created to ease the workflow, exceed Excel limitations, and solve complicated logics</span>
+        </div>
+        <div class="media-grid">
+          <div>
+            <h3 class="section-title" style="font-size:16px;margin-top:0">Screenshots</h3>
+            <img id="vbaSnap1" class="media" alt="VBA snapshot 1" loading="lazy" />
+            <img id="vbaSnap2" class="media" alt="VBA snapshot 2" loading="lazy" style="margin-top:12px" />
+          </div>
+          <div>
+            <h3 class="section-title" style="font-size:16px;margin-top:0">Custom function (PDF)</h3>
+            <iframe id="vbaPdf" title="VBA custom function PDF" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id="vba">
-  <h2>VBA Projects</h2>
-  <p class="blink">Custom functions are created to ease the workflow, exceed Excel limitations, and solve complicated logics</p>
-  <img src="https://drive.google.com/uc?export=view&id=1qpKb1R6a9qhbhJEHrbpAUudUlFty6mwz" width="100%">
-  <img src="https://drive.google.com/uc?export=view&id=1vBS5-3Ap9bnsPZAfM5W-BTQUWE3KrNsn" width="100%">
-  <iframe src="https://drive.google.com/file/d/1n3W_fRzBJBbfQz1Q_HSwJzrvVxhfNC2b/preview"></iframe>
-</section>
+    <!-- Experience -->
+    <section id="experience" class="section">
+      <div class="card">
+        <h2 class="section-title">Experience</h2>
+        <div style="display:grid;gap:12px">
+          <div class="card" style="background:#0f172a;border-color:rgba(124,58,237,.35)">
+            <strong>Motherhood Hospitals (Rhea Healthcare Pvt Ltd)</strong><br/>
+            Sr. MIS Executive | Jun 2024 – Present<br/>
+            Automated daily, weekly, and monthly reports using VBA macros<br/>
+            Managed workflow analysis<br/>
+            Designed dashboards for management and client reporting
+          </div>
+          <div class="card" style="background:#0f172a;border-color:rgba(6,182,212,.35)">
+            <strong>Ileads Auxiliary Services Pvt Ltd</strong><br/>
+            Sr. MIS Executive | Mar 2024 – May 2024<br/>
+            Delivered client reports for INDKAL, Sodexo, Visit Health
+          </div>
+          <div class="card" style="background:#0f172a;border-color:rgba(34,197,94,.35)">
+            <strong>Teleperformance</strong><br/>
+            Sr. MIS Executive | Aug 2021 – Mar 2024<br/>
+            MIS reporting for Flipkart Easy Credit & Toyota Financial Services<br/>
+            Built efficiency trackers and workflow dashboards
+          </div>
+          <div class="card" style="background:#0f172a;border-color:rgba(245,158,11,.35)">
+            <strong>Hotel Saravana Bhavan</strong><br/>
+            HR MIS Executive | Jul 2019 – Jul 2021<br/>
+            HR data reporting and employee workflow analysis
+          </div>
+          <div class="card" style="background:#0f172a;border-color:rgba(239,68,68,.35)">
+            <strong>Dinesh Engineering Industries</strong><br/>
+            Maintenance Incharge | Aug 2016 – Jun 2019
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id="experience">
-  <h2>Experience</h2>
-  <ul>
-    <li><b>Motherhood Hospitals</b> (Jun 2024 – Present) – Automated reports, workflow analysis, dashboards</li>
-    <li><b>Ileads Auxiliary Services</b> (Mar 2024 – May 2024) – Client reports for INDKAL, Sodexo, Visit Health</li>
-    <li><b>Teleperformance</b> (Aug 2021 – Mar 2024) – MIS reporting for Flipkart & Toyota Financial Services</li>
-    <li><b>Hotel Saravana Bhavan</b> (Jul 2019 – Jul 2021) – HR data reporting, workflow analysis</li>
-    <li><b>Dinesh Engineering Industries</b> (Aug 2016 – Jun 2019) – Maintenance Incharge</li>
-  </ul>
-</section>
+    <!-- Cover Letter -->
+    <section id="cover" class="section">
+      <div class="card">
+        <h2 class="section-title">Cover letter</h2>
+        <div class="bar">
+          <a id="coverDownload" class="btn" href="#" download>⬇️ Download cover letter</a>
+        </div>
+        <iframe id="coverFrame" title="Cover letter PDF" loading="lazy"></iframe>
+      </div>
+    </section>
+  </main>
 
-<section id="coverletter">
-  <h2>Cover Letter</h2>
-  <a class="download-btn" href="https://drive.google.com/file/d/1kNW4vyr91DgQZwGrxKWb83aEwESlQXPi/view?usp=drivesdk" target="_blank">Download Cover Letter</a>
-  <iframe src="https://drive.google.com/file/d/1kNW4vyr91DgQZwGrxKWb83aEwESlQXPi/preview"></iframe>
-</section>
+  <!-- Floating WhatsApp -->
+  <a class="whatsapp" href="https://wa.me/916304909328" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <span class="sr-only">WhatsApp</span>
+    <!-- Minimal WhatsApp logo (SVG) -->
+    <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="#fff" d="M20.52 3.48A9.86 9.86 0 0 0 12 1a9.99 9.99 0 0 0-8.63 14.93L2 23l7.27-1.9A10 10 0 0 0 22 12a9.86 9.86 0 0 0-1.48-8.52zM12 21.07c-1.64 0-3.25-.46-4.66-1.34l-.33-.2-4.06 1.06 1.09-3.95-.21-.34A8.07 8.07 0 0 1 20.07 12 8.07 8.07 0 0 1 12 21.07zm4.62-6.09c-.25-.12-1.47-.73-1.69-.82-.22-.08-.38-.12-.54.12-.16.25-.62.82-.76.99-.14.16-.28.19-.52.07-.25-.12-1.04-.38-1.98-1.2-.73-.65-1.23-1.45-1.38-1.69-.14-.25-.02-.38.1-.51.1-.1.25-.28.36-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.54-1.3-.74-1.77-.2-.48-.4-.41-.54-.41h-.47c-.16 0-.41.06-.63.31-.22.25-.83.81-.83 1.96s.85 2.29.97 2.45c.12.16 1.67 2.55 4.06 3.58.57.25 1.01.41 1.35.53.57.18 1.09.15 1.5.09.46-.07 1.47-.6 1.68-1.18.21-.57.21-1.06.15-1.18-.06-.12-.24-.19-.49-.31z"/>
+    </svg>
+  </a>
 
-<a class="floating-whatsapp" href="https://wa.me/916304909328" target="_blank">💬</a>
+  <footer class="footer">© Ajithkumar Thaivedu</footer>
 
+  <script>
+    // All Google Drive links defined up-front (single source of truth)
+    const links = {
+      resume: "https://drive.google.com/file/d/1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq/view?usp=drivesdk",
+      dashVideo: "https://drive.google.com/file/d/1aPtv--5JDlneq-1kHphD4iDE5uWwffGU/view?usp=drivesdk",
+      dashSnap1: "https://drive.google.com/file/d/1Rfrm-NshB4xBEQ2ULzqGFOWYAK7Kk3Fq/view?usp=drivesdk",
+      dashSnap2: "https://drive.google.com/file/d/1lk6vUnpQIdy1kBRpRcdlD67bB7Q0NCW7/view?usp=drivesdk",
+      vbaSnap1: "https://drive.google.com/file/d/1qpKb1R6a9qhbhJEHrbpAUudUlFty6mwz/view?usp=drivesdk",
+      vbaSnap2: "https://drive.google.com/file/d/1vBS5-3Ap9bnsPZAfM5W-BTQUWE3KrNsn/view?usp=drivesdk",
+      vbaPdf: "https://drive.google.com/file/d/1n3W_fRzBJBbfQz1Q_HSwJzrvVxhfNC2b/view?usp=drivesdk",
+      cover: "https://drive.google.com/file/d/1kNW4vyr91DgQZwGrxKWb83aEwESlQXPi/view?usp=drivesdk"
+    };
+
+    // Helpers to convert Drive view links -> preview iframe and direct download
+    function extractFileId(driveUrl){
+      const m = driveUrl.match(/\/d\/([^/]+)\//);
+      return m ? m[1] : null;
+    }
+    function drivePreviewUrl(driveUrl){
+      const id = extractFileId(driveUrl);
+      return id ? `https://drive.google.com/file/d/${id}/preview` : driveUrl;
+    }
+    function driveDownloadUrl(driveUrl){
+      const id = extractFileId(driveUrl);
+      return id ? `https://drive.google.com/uc?export=download&id=${id}` : driveUrl;
+    }
+    function driveDirectImage(driveUrl){
+      const id = extractFileId(driveUrl);
+      return id ? `https://drive.google.com/uc?export=view&id=${id}` : driveUrl;
+    }
+
+    // Populate Resume
+    const resumeFrame = document.getElementById('resumeFrame');
+    const resumeDownloadTop = document.getElementById('resumeDownloadTop');
+    const resumeDownloadBottom = document.getElementById('resumeDownloadBottom');
+    resumeFrame.src = drivePreviewUrl(links.resume);
+    resumeDownloadTop.href = driveDownloadUrl(links.resume);
+    resumeDownloadBottom.href = driveDownloadUrl(links.resume);
+
+    // Populate Dashboard
+    document.getElementById('dashVideo').src = drivePreviewUrl(links.dashVideo);
+    document.getElementById('dashSnap1').src = driveDirectImage(links.dashSnap1);
+    document.getElementById('dashSnap2').src = driveDirectImage(links.dashSnap2);
+
+    // Populate VBA
+    document.getElementById('vbaSnap1').src = driveDirectImage(links.vbaSnap1);
+    document.getElementById('vbaSnap2').src = driveDirectImage(links.vbaSnap2);
+    document.getElementById('vbaPdf').src = drivePreviewUrl(links.vbaPdf);
+
+    // Populate Cover letter
+    document.getElementById('coverFrame').src = drivePreviewUrl(links.cover);
+    document.getElementById('coverDownload').href = driveDownloadUrl(links.cover);
+
+    // Tabs behavior
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('.section');
+    tabs.forEach(tab=>{
+      tab.addEventListener('click', ()=>{
+        tabs.forEach(t=>t.classList.remove('active'));
+        sections.forEach(s=>s.classList.remove('active'));
+        tab.classList.add('active');
+        const target = tab.dataset.target;
+        document.getElementById(target).classList.add('active');
+        // optional: scroll to top of content
+        window.scrollTo({ top: document.querySelector('.nav').offsetTop, behavior: 'smooth' });
+      });
+    });
+
+    // Progressive enhancement: ensure tel and wa.me use India code
+    // Already set: tel:+91..., wa.me/91...
+  </script>
 </body>
 </html>
