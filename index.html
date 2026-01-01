@@ -3,88 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <title>Ajithkumar Thaivedu Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #4facfe, #f093fb); color: #fff; margin:0; }
-    header { text-align:center; padding:20px; }
-    header h1 { font-size:2.5em; margin:0; }
-    header p { font-size:1.2em; }
-    nav { display:flex; justify-content:center; gap:20px; background:#222; padding:10px; position:sticky; top:0; z-index:1000; }
-    nav a { color:#fff; text-decoration:none; font-weight:bold; }
-    section { padding:20px; }
-    iframe, video, img { max-width:100%; border-radius:8px; margin:10px 0; }
-    a.button { display:inline-block; background:#ff9800; color:#fff; padding:10px 15px; border-radius:5px; text-decoration:none; margin:10px 0; }
-    .blink { animation: blink 1.5s infinite; font-weight:bold; font-size:1.2em; }
-    @keyframes blink { 50% { opacity:0; } }
-    .whatsapp { position:fixed; bottom:20px; right:20px; background:#25D366; padding:15px; border-radius:50%; font-size:24px; text-decoration:none; color:#fff; z-index:1000; }
-    footer { background:#222; text-align:center; padding:15px; margin-top:20px; }
-    footer a { color:#4facfe; margin:0 10px; text-decoration:none; }
+    body { font-family: Arial, sans-serif; margin:0; background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+    header { background: #ff6f61; color: white; padding: 20px; text-align: center; }
+    nav { display: flex; justify-content: center; background: #333; }
+    nav a { color: white; padding: 14px 20px; text-decoration: none; }
+    nav a:hover { background: #ff6f61; }
+    section { padding: 20px; }
+    .contact { text-align: center; margin: 20px; }
+    .contact a { margin: 0 10px; text-decoration: none; color: #ff6f61; font-weight: bold; }
+    .blink { animation: blink 1.5s infinite; color: #d32f2f; font-weight: bold; }
+    @keyframes blink { 50% { opacity: 0; } }
+    iframe { width: 100%; height: 600px; border: none; }
+    .download-btn { display: block; margin: 10px auto; padding: 10px 20px; background: #ff6f61; color: white; text-align: center; text-decoration: none; border-radius: 5px; }
+    .floating-whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 15px; border-radius: 50%; font-size: 20px; text-decoration: none; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Ajithkumar Thaivedu</h1>
-    <p>Email: ajithkumarthaivedu@gmail.com 
-       <a href="mailto:ajithkumarthaivedu@gmail.com">📧</a></p>
-    <p>Mobile: 6304909328 
-       <a href="tel:6304909328">📞</a></p>
-  </header>
 
-  <nav>
-    <a href="#resume">Resume</a>
-    <a href="#dashboard">Sample Dashboard</a>
-    <a href="#vba">VBA</a>
-    <a href="#experience">Experience</a>
-    <a href="#cover">Cover Letter</a>
-  </nav>
+<header>
+  <h1>Ajithkumar Thaivedu</h1>
+</header>
 
-  <!-- Resume Section -->
-  <section id="resume">
-    <h2>Resume</h2>
-    <iframe src="https://drive.google.com/file/d/1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq/preview" width="100%" height="500" allow="autoplay"></iframe>
-    <a class="button" href="https://drive.google.com/uc?export=download&id=1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq">⬇ Download Resume</a>
-  </section>
+<div class="contact">
+  📧 <span>ajithkumarthaivedu@gmail.com</span>
+  <a href="mailto:ajithkumarthaivedu@gmail.com">Mail Me</a> |
+  📞 <span>6304909328</span>
+  <a href="tel:6304909328">Call Me</a>
+</div>
 
-  <!-- Dashboard Section -->
-  <section id="dashboard">
-    <h2>Sample Dashboard</h2>
-    <video controls src="https://drive.google.com/uc?export=download&id=1aPtv--5JDlneq-1kHphD4iDE5uWwffGU"></video>
-    <img src="https://drive.google.com/uc?export=view&id=1sDlYzgpTO9QC9d0aRf7Lwj6pweP8_p7E">
-    <img src="https://drive.google.com/uc?export=view&id=1Rfrm-NshB4xBEQ2ULzqGFOWYAK7Kk3Fq">
-    <img src="https://drive.google.com/uc?export=view&id=1lk6vUnpQIdy1kBRpRcdlD67bB7Q0NCW7">
-    <p class="blink">I am good in Dashboard creation, have experience of 50+ dashboards creation to the business needs</p>
-  </section>
+<nav>
+  <a href="#resume">Resume</a>
+  <a href="#dashboard">Sample Dashboard</a>
+  <a href="#vba">VBA</a>
+  <a href="#experience">Experience</a>
+  <a href="#coverletter">Cover Letter</a>
+</nav>
 
-  <!-- VBA Section -->
-  <section id="vba">
-    <h2>VBA Projects</h2>
-    <img src="https://drive.google.com/uc?export=view&id=1qpKb1R6a9qhbhJEHrbpAUudUlFty6mwz">
-    <img src="https://drive.google.com/uc?export=view&id=1vBS5-3Ap9bnsPZAfM5W-BTQUWE3KrNsn">
-    <img src="https://drive.google.com/uc?export=view&id=1n3W_fRzBJBbfQz1Q_HSwJzrvVxhfNC2b">
-    <p class="blink">Custom functions are created to ease the workflow, exceed Excel limitations, and solve complicated logics</p>
-  </section>
+<section id="resume">
+  <h2>Resume</h2>
+  <a class="download-btn" href="https://drive.google.com/file/d/1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq/view?usp=drivesdk" target="_blank">Download Resume PDF</a>
+  <iframe src="https://drive.google.com/file/d/1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq/preview"></iframe>
+  <a class="download-btn" href="https://drive.google.com/file/d/1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq/view?usp=drivesdk" target="_blank">Download Resume PDF</a>
+</section>
 
-  <!-- Experience Section -->
-  <section id="experience">
-    <h2>Experience</h2>
-    <p>Experience details here (will update later)</p>
-  </section>
+<section id="dashboard">
+  <h2>Sample Dashboard</h2>
+  <p class="blink">I am good in Dashboard creation, have experience of 50+ dashboards creation to the business needs</p>
+  <iframe src="https://drive.google.com/file/d/1aPtv--5JDlneq-1kHphD4iDE5uWwffGU/preview"></iframe>
+  <img src="https://drive.google.com/uc?export=view&id=1Rfrm-NshB4xBEQ2ULzqGFOWYAK7Kk3Fq" width="100%">
+  <img src="https://drive.google.com/uc?export=view&id=1lk6vUnpQIdy1kBRpRcdlD67bB7Q0NCW7" width="100%">
+</section>
 
-  <!-- Cover Letter Section -->
-  <section id="cover">
-    <h2>Cover Letter</h2>
-    <iframe src="https://drive.google.com/file/d/1kNW4vyr91DgQZwGrxKWb83aEwESlQXPi/preview" width="100%" height="500"></iframe>
-    <a class="button" href="https://drive.google.com/uc?export=download&id=1kNW4vyr91DgQZwGrxKWb83aEwESlQXPi">⬇ Download Cover Letter</a>
-  </section>
+<section id="vba">
+  <h2>VBA Projects</h2>
+  <p class="blink">Custom functions are created to ease the workflow, exceed Excel limitations, and solve complicated logics</p>
+  <img src="https://drive.google.com/uc?export=view&id=1qpKb1R6a9qhbhJEHrbpAUudUlFty6mwz" width="100%">
+  <img src="https://drive.google.com/uc?export=view&id=1vBS5-3Ap9bnsPZAfM5W-BTQUWE3KrNsn" width="100%">
+  <iframe src="https://drive.google.com/file/d/1n3W_fRzBJBbfQz1Q_HSwJzrvVxhfNC2b/preview"></iframe>
+</section>
 
-  <!-- Floating WhatsApp -->
-  <a class="whatsapp" href="https://wa.me/916304909328">💬</a>
+<section id="experience">
+  <h2>Experience</h2>
+  <ul>
+    <li><b>Motherhood Hospitals</b> (Jun 2024 – Present) – Automated reports, workflow analysis, dashboards</li>
+    <li><b>Ileads Auxiliary Services</b> (Mar 2024 – May 2024) – Client reports for INDKAL, Sodexo, Visit Health</li>
+    <li><b>Teleperformance</b> (Aug 2021 – Mar 2024) – MIS reporting for Flipkart & Toyota Financial Services</li>
+    <li><b>Hotel Saravana Bhavan</b> (Jul 2019 – Jul 2021) – HR data reporting, workflow analysis</li>
+    <li><b>Dinesh Engineering Industries</b> (Aug 2016 – Jun 2019) – Maintenance Incharge</li>
+  </ul>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>Connect with me:</p>
-    <a href="https://www.linkedin.com/in/ajithkumarthaivedu" target="_blank">LinkedIn</a>
-    <a href="https://github.com/marthaivedu" target="_blank">GitHub</a>
-    <span>📍 Bengaluru, India</span>
-  </footer>
+<section id="coverletter">
+  <h2>Cover Letter</h2>
+  <a class="download-btn" href="https://drive.google.com/file/d/1kNW4vyr91DgQZwGrxKWb83aEwESlQXPi/view?usp=drivesdk" target="_blank">Download Cover Letter</a>
+  <iframe src="https://drive.google.com/file/d/1kNW4vyr91DgQZwGrxKWb83aEwESlQXPi/preview"></iframe>
+</section>
+
+<a class="floating-whatsapp" href="https://wa.me/916304909328" target="_blank">💬</a>
+
 </body>
 </html>
