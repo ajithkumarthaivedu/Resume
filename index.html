@@ -8,14 +8,14 @@
     header { text-align:center; padding:20px; }
     header h1 { font-size:2.5em; margin:0; }
     header p { font-size:1.2em; }
-    nav { display:flex; justify-content:center; gap:20px; background:#222; padding:10px; position:sticky; top:0; }
+    nav { display:flex; justify-content:center; gap:20px; background:#222; padding:10px; position:sticky; top:0; z-index:1000; }
     nav a { color:#fff; text-decoration:none; font-weight:bold; }
     section { padding:20px; }
     iframe, video, img { max-width:100%; border-radius:8px; margin:10px 0; }
     a.button { display:inline-block; background:#ff9800; color:#fff; padding:10px 15px; border-radius:5px; text-decoration:none; margin:10px 0; }
     .blink { animation: blink 1.5s infinite; font-weight:bold; font-size:1.2em; }
     @keyframes blink { 50% { opacity:0; } }
-    .whatsapp { position:fixed; bottom:20px; right:20px; background:#25D366; padding:15px; border-radius:50%; font-size:24px; text-decoration:none; color:#fff; }
+    .whatsapp { position:fixed; bottom:20px; right:20px; background:#25D366; padding:15px; border-radius:50%; font-size:24px; text-decoration:none; color:#fff; z-index:1000; }
     footer { background:#222; text-align:center; padding:15px; margin-top:20px; }
     footer a { color:#4facfe; margin:0 10px; text-decoration:none; }
   </style>
@@ -83,7 +83,7 @@
   <footer>
     <p>Connect with me:</p>
     <a href="https://www.linkedin.com/in/ajithkumarthaivedu" target="_blank">LinkedIn</a>
-    <a href="https://github.com/ajithkumarthaivedu" target="_blank">GitHub</a>
+    <a href="https://github.com/marthaivedu" target="_blank">GitHub</a>
     <span>📍 Bengaluru, India</span>
   </footer>
 </body>
