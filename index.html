@@ -21,6 +21,7 @@ body{
   font-family:'Inter',sans-serif;
   background:var(--bg);
   color:#111827;
+  line-height:1.6;
 }
 
 header{
@@ -109,10 +110,18 @@ iframe{
   font-weight:600;
   color:var(--accent);
   animation:blink 1.5s infinite;
-  margin-bottom:1rem;
+  margin-bottom:.5rem;
 }
 
 @keyframes blink{50%{opacity:.2}}
+
+.vba-text{
+  background:#e0f2fe;
+  padding:1rem;
+  border-radius:10px;
+  font-size:.9rem;
+  margin-bottom:1rem;
+}
 
 .whatsapp{
   position:fixed;
@@ -124,6 +133,8 @@ iframe{
 }
 
 .whatsapp img{width:100%;height:100%}
+
+.exp-block{margin-bottom:1.2rem}
 
 @media(max-width:600px){
   iframe{height:65vh}
@@ -173,13 +184,7 @@ iframe{
   </a>
 
   <div class="media">
-    <!-- ✅ AUTO PLAY GUARANTEED -->
-    <video id="dashboardVideo"
-           autoplay
-           muted
-           loop
-           playsinline
-           controls>
+    <video id="dashboardVideo" autoplay muted loop playsinline controls>
       <source src="https://ajithkumarthaivedu.github.io/Storage/image/Dashboard .mp4" type="video/mp4">
     </video>
 
@@ -201,20 +206,46 @@ iframe{
 <!-- VBA -->
 <section id="vba">
   <h2>VBA Work</h2>
+
   <div class="blink">
-    Custom functions are created to ease workflow and solve complicated logic
+    Custom functions are created to ease the workflow and exceed Excel limitations
   </div>
+
+  <div class="vba-text">
+    <ul>
+      <li>Multiple lookup functions implemented using custom VBA functions</li>
+      <li>Correcting improper mobile numbers through reusable VBA logic</li>
+      <li>Eliminated multiple helper columns by using custom functions</li>
+      <li>Replaced looping scenarios with optimized VBA functions</li>
+      <li>These implementations greatly help in real-time practical business scenarios</li>
+    </ul>
+  </div>
+
   <div class="media">
     <img src="https://ajithkumarthaivedu.github.io/Storage/image/VBA .jpeg">
     <img src="https://ajithkumarthaivedu.github.io/Storage/image/Vba.jpeg">
   </div>
+
+  <a class="download-btn"
+     href="https://drive.google.com/uc?export=download&id=1n3W_fRzBJBbfQz1Q_HSwJzrvVxhfNC2b">
+     Download .bas File
+  </a>
 </section>
 
 <!-- APPRECIATION -->
 <section id="appreciation">
   <h2>Appreciation</h2>
-  <p><strong>Best Performer – Q4 2021</strong><br>Teleperformance – Flipkart Easycredit</p>
-  <p><strong>Best Performer – Q1 2022</strong><br>Teleperformance – Flipkart Easy Credit</p>
+
+  <p><strong>Best Performer – Q4 2021</strong><br>
+     Teleperformance – WFM (Flipkart Easycredit)<br>
+     Recognized for dedication and commitment.
+  </p>
+
+  <p><strong>Best Performer – Q1 2022</strong><br>
+     Teleperformance – Flipkart Easy Credit<br>
+     Outstanding performance as MIS Executive.
+  </p>
+
   <div class="media">
     <img src="https://ajithkumarthaivedu.github.io/Storage/image/Best_Performer_Certificate.jpg">
     <img src="https://ajithkumarthaivedu.github.io/Storage/image/Thaivedu Ajithkumar_Mar'22.jpg">
@@ -224,9 +255,46 @@ iframe{
 <!-- EXPERIENCE -->
 <section id="experience">
   <h2>Experience</h2>
-  <p><strong>Motherhood Hospitals</strong> – Sr. MIS Executive</p>
-  <p><strong>Ileads Auxiliary Services</strong> – Sr. MIS Executive</p>
-  <p><strong>Teleperformance</strong> – Sr. MIS Executive</p>
+
+  <div class="exp-block">
+    <strong>Motherhood Hospitals (Rhea Healthcare Pvt Ltd)</strong><br>
+    Sr. MIS Executive | Jun 2024 – Present
+    <ul>
+      <li>Automated daily, weekly, and monthly reports using VBA macros</li>
+      <li>Managed workflow analysis</li>
+      <li>Designed dashboards for management and client reporting</li>
+    </ul>
+  </div>
+
+  <div class="exp-block">
+    <strong>Ileads Auxiliary Services Pvt Ltd</strong><br>
+    Sr. MIS Executive | Mar 2024 – May 2024
+    <ul>
+      <li>Delivered client reports for INDKAL, Sodexo, Visit Health</li>
+    </ul>
+  </div>
+
+  <div class="exp-block">
+    <strong>Teleperformance</strong><br>
+    Sr. MIS Executive | Aug 2021 – Mar 2024
+    <ul>
+      <li>MIS reporting for Flipkart Easy Credit & Toyota Financial Services</li>
+      <li>Built efficiency trackers and workflow dashboards</li>
+    </ul>
+  </div>
+
+  <div class="exp-block">
+    <strong>Hotel Saravana Bhavan</strong><br>
+    HR MIS Executive | Jul 2019 – Jul 2021
+    <ul>
+      <li>HR data reporting and employee workflow analysis</li>
+    </ul>
+  </div>
+
+  <div class="exp-block">
+    <strong>Dinesh Engineering Industries</strong><br>
+    Maintenance Incharge | Aug 2016 – Jun 2019
+  </div>
 </section>
 
 <!-- COVER LETTER -->
@@ -235,7 +303,6 @@ iframe{
   <iframe src="https://drive.google.com/file/d/1kNW4vyr91DgQZwGrxKWb83aEwESlQXPi/preview"></iframe>
 </section>
 
-<!-- FLOATING WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/916304909328" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
@@ -244,16 +311,13 @@ iframe{
 function openTab(id,btn){
   document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
 
-  // ✅ FORCE VIDEO PLAY WHEN DASHBOARD TAB OPENS
-  if(id === 'dashboard'){
-    const v = document.getElementById('dashboardVideo');
-    if(v){ v.play().catch(()=>{}); }
+  if(id==='dashboard'){
+    const v=document.getElementById('dashboardVideo');
+    if(v){v.play().catch(()=>{});}
   }
-
   window.scrollTo({top:0,behavior:'smooth'});
 }
 </script>
