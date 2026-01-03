@@ -53,9 +53,7 @@ nav{
   gap:.5rem;
 }
 
-/* ===== CLICKABLE TAB ANIMATION ===== */
 nav button{
-  position:relative;
   background:#ffffff22;
   border:1px solid #ffffff55;
   color:#fff;
@@ -63,28 +61,6 @@ nav button{
   border-radius:999px;
   cursor:pointer;
   font-size:.85rem;
-  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
-}
-
-nav button:hover{
-  transform:translateY(-2px) scale(1.05);
-  box-shadow:0 6px 18px rgba(0,0,0,.25);
-  background:rgba(255,255,255,.35);
-}
-
-nav button::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:999px;
-  box-shadow:0 0 0 0 rgba(255,255,255,.6);
-  animation:tabPulse 2.5s infinite;
-}
-
-@keyframes tabPulse{
-  0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}
-  70%{box-shadow:0 0 0 10px rgba(255,255,255,0)}
-  100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}
 }
 
 nav button.active{
@@ -93,9 +69,6 @@ nav button.active{
   border-bottom:3px solid var(--accent);
 }
 
-nav button.active::after{animation:none}
-
-/* ===== CONTENT ===== */
 section{
   display:none;
   padding:1.25rem;
@@ -176,11 +149,11 @@ iframe{
 
   <div class="contact">
     <div>
-      📧 ajithkumarthaivedu@gmail.com
+       ajithkumarthaivedu@gmail.com
       <button onclick="location.href='mailto:ajithkumarthaivedu@gmail.com'">Mail</button>
     </div>
     <div style="margin-top:4px">
-      📞 +91 6304909328
+       +91 6304909328
       <button onclick="location.href='tel:+916304909328'">Call</button>
       <button onclick="location.href='https://wa.me/916304909328'">WhatsApp</button>
     </div>
@@ -199,15 +172,22 @@ iframe{
 <!-- DASHBOARD -->
 <section id="dashboard" class="active">
   <h2>Dashboard</h2>
-  <div class="blink">I am good in Dashboard creation, have experience of 50+ dashboards creation to business needs</div>
-  <a class="download-btn" href="https://ajithkumarthaivedu.github.io/Storage/image/Retail_sales.xlsb" download>
-    Download Sample Sales Excel
+
+  <div class="blink">
+    I am good in Dashboard creation, have experience of 50+ dashboards creation to business needs
+  </div>
+
+  <a class="download-btn"
+     href="https://ajithkumarthaivedu.github.io/Storage/image/Retail_sales.xlsb"
+     download>
+     Download Sample Sales Excel
   </a>
 
   <div class="media">
     <video id="dashboardVideo" autoplay muted loop playsinline controls>
       <source src="https://ajithkumarthaivedu.github.io/Storage/image/Dashboard .mp4" type="video/mp4">
     </video>
+
     <img src="https://ajithkumarthaivedu.github.io/Storage/image/Dashboard snap.jpeg">
     <img src="https://ajithkumarthaivedu.github.io/Storage/image/DashboardSnap.jpeg">
   </div>
@@ -216,29 +196,60 @@ iframe{
 <!-- RESUME -->
 <section id="resume">
   <h2>Resume</h2>
-  <a class="download-btn" href="https://drive.google.com/uc?export=download&id=1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq">Download Resume</a>
+  <a class="download-btn"
+     href="https://drive.google.com/uc?export=download&id=1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq">
+     Download Resume
+  </a>
   <iframe src="https://drive.google.com/file/d/1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq/preview"></iframe>
 </section>
 
 <!-- VBA -->
 <section id="vba">
   <h2>VBA Work</h2>
-  <div class="blink">Custom functions are created to ease the workflow and exceed Excel limitations</div>
+
+  <div class="blink">
+    Custom functions are created to ease the workflow and exceed Excel limitations
+  </div>
+
   <div class="vba-text">
     <ul>
       <li>Multiple lookup functions implemented using custom VBA functions</li>
       <li>Correcting improper mobile numbers through reusable VBA logic</li>
-      <li>Eliminated multiple helper columns</li>
-      <li>Optimized looping scenarios</li>
+      <li>Eliminated multiple helper columns by using custom functions</li>
+      <li>Replaced looping scenarios with optimized VBA functions</li>
+      <li>These implementations greatly help in real-time practical business scenarios</li>
     </ul>
   </div>
+
+  <div class="media">
+    <img src="https://ajithkumarthaivedu.github.io/Storage/image/VBA .jpeg">
+    <img src="https://ajithkumarthaivedu.github.io/Storage/image/Vba.jpeg">
+  </div>
+
+  <a class="download-btn"
+     href="https://drive.google.com/uc?export=download&id=1n3W_fRzBJBbfQz1Q_HSwJzrvVxhfNC2b">
+     Download .bas File
+  </a>
 </section>
 
 <!-- APPRECIATION -->
 <section id="appreciation">
   <h2>Appreciation</h2>
-  <p><strong>Best Performer – Q4 2021</strong><br>Teleperformance – WFM</p>
-  <p><strong>Best Performer – Q1 2022</strong><br>Teleperformance</p>
+
+  <p><strong>Best Performer – Q4 2021</strong><br>
+     Teleperformance – WFM (Flipkart Easycredit)<br>
+     Recognized for dedication and commitment.
+  </p>
+
+  <p><strong>Best Performer – Q1 2022</strong><br>
+     Teleperformance – Flipkart Easy Credit<br>
+     Outstanding performance as MIS Executive.
+  </p>
+
+  <div class="media">
+    <img src="https://ajithkumarthaivedu.github.io/Storage/image/Best_Performer_Certificate.jpg">
+    <img src="https://ajithkumarthaivedu.github.io/Storage/image/Thaivedu Ajithkumar_Mar'22.jpg">
+  </div>
 </section>
 
 <!-- EXPERIENCE -->
@@ -250,23 +261,34 @@ iframe{
     Sr. MIS Executive | Jun 2024 – Present
     <ul>
       <li>Automated daily, weekly, and monthly reports using VBA macros</li>
-      <li>Workflow analysis and dashboard reporting</li>
+      <li>Managed workflow analysis</li>
+      <li>Designed dashboards for management and client reporting</li>
     </ul>
   </div>
 
   <div class="exp-block">
     <strong>Ileads Auxiliary Services Pvt Ltd</strong><br>
     Sr. MIS Executive | Mar 2024 – May 2024
+    <ul>
+      <li>Delivered client reports for INDKAL, Sodexo, Visit Health</li>
+    </ul>
   </div>
 
   <div class="exp-block">
     <strong>Teleperformance</strong><br>
     Sr. MIS Executive | Aug 2021 – Mar 2024
+    <ul>
+      <li>MIS reporting for Flipkart Easy Credit & Toyota Financial Services</li>
+      <li>Built efficiency trackers and workflow dashboards</li>
+    </ul>
   </div>
 
   <div class="exp-block">
     <strong>Hotel Saravana Bhavan</strong><br>
     HR MIS Executive | Jul 2019 – Jul 2021
+    <ul>
+      <li>HR data reporting and employee workflow analysis</li>
+    </ul>
   </div>
 
   <div class="exp-block">
@@ -291,6 +313,11 @@ function openTab(id,btn){
   document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
+
+  if(id==='dashboard'){
+    const v=document.getElementById('dashboardVideo');
+    if(v){v.play().catch(()=>{});}
+  }
   window.scrollTo({top:0,behavior:'smooth'});
 }
 </script>
