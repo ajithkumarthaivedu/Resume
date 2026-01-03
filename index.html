@@ -4,203 +4,267 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ajithkumar Thaivedu | MIS & Dashboard Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --primary:#4f46e5;
-      --secondary:#06b6d4;
-      --bg:#0f172a;
-      --card:#111827;
-      --text:#e5e7eb;
-      --muted:#94a3b8;
+      --primary:#2563eb;
+      --accent:#10b981;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --border:#e5e7eb;
+      --dark:#0f172a;
+      --softBlue:#eff6ff;
+      --softGreen:#ecfdf5;
+      --softPurple:#faf5ff;
     }
-    *{box-sizing:border-box;}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;
-      background:linear-gradient(135deg,#020617,#0f172a);
-      color:var(--text);
-    }
+
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif}
+    body{background:var(--bg);color:var(--dark)}
+
+    /* HEADER */
     header{
       position:fixed;top:0;left:0;right:0;z-index:1000;
-      background:rgba(2,6,23,0.9);backdrop-filter:blur(8px);
-      border-bottom:1px solid #1e293b;
+      background:#fff;border-bottom:1px solid var(--border)
     }
+
     .header-wrap{
-      display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
-      padding:10px 14px;gap:10px;
+      display:flex;flex-direction:column;gap:4px;
+      padding:8px 14px
     }
-    .name{font-weight:700;font-size:18px;color:#fff;}
-    .contact{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
-    .contact a{color:var(--secondary);text-decoration:none;font-weight:500;}
-    nav{display:flex;gap:6px;flex-wrap:wrap;}
+
+    .title{font-size:18px;font-weight:600;color:var(--primary);text-align:center}
+
+    .contact{
+      font-size:13px;display:flex;flex-direction:column;
+      gap:2px;align-items:center
+    }
+    .contact a{color:var(--primary);text-decoration:none;font-weight:500}
+
+    .divider{height:1px;background:var(--border)}
+
+    /* TABS */
+    nav{
+      display:flex;flex-wrap:wrap;gap:6px;
+      justify-content:center;padding:6px
+    }
+
     nav button{
-      background:transparent;border:1px solid #334155;color:#cbd5f5;
-      padding:6px 10px;border-radius:8px;cursor:pointer;font-size:13px;
-      transition:all .3s ease, transform .2s ease;
-      animation:pulse 2s infinite;
+      border:1px solid var(--border);
+      background:#fff;padding:5px 12px;
+      cursor:pointer;font-size:13px;
+      border-radius:6px;white-space:nowrap;
+      transition:.2s;color:var(--dark)
     }
-    nav button:hover{background:rgba(79,70,229,.2);}
+
     nav button.active{
-      background:linear-gradient(135deg,var(--primary),var(--secondary));
-      color:#fff;border-color:transparent;
+      background:var(--softBlue);
+      color:var(--primary);
+      border-color:var(--primary);
+      font-weight:600
     }
-    main{padding:120px 12px 40px;max-width:1100px;margin:auto;}
-    section{display:none;animation:fade .4s ease;}
-    section.active{display:block;}
-    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,211,238,.4)}70%{box-shadow:0 0 0 6px rgba(34,211,238,0)}100%{box-shadow:0 0 0 0 rgba(34,211,238,0)}}
-    nav button:hover{transform:translateY(-2px) scale(1.05);background:rgba(79,70,229,.25);}
-    nav button.active{transform:scale(1.08)}
-    @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-    h2{margin-top:0;font-size:22px;}
-    .blink{color:#22d3ee;font-weight:600;animation:blink 1.2s infinite;}
-    @keyframes blink{50%{opacity:.3}}
-    .card{background:var(--card);border:1px solid #1e293b;border-radius:14px;padding:12px;margin-bottom:14px;}
-    video,iframe,img{width:100%;border-radius:10px;}
-    iframe{height:520px;}
+
+    nav button:hover{background:#f1f5f9}
+
+    /* MAIN – GAP REDUCED TO HALF */
+    main{
+      padding-top:140px; /* reduced from 220px */
+      max-width:1100px;
+      margin:auto;
+      padding-inline:14px
+    }
+
+    section{display:none;animation:fade .25s ease}
+    section.active{display:block}
+    @keyframes fade{from{opacity:0}to{opacity:1}}
+
+    h2{margin:12px 0;color:var(--primary)}
+
+    .blink{
+      color:#b91c1c;font-weight:600;
+      background:#fee2e2;padding:8px 12px;
+      border-radius:6px;margin-bottom:10px;
+      animation:blink 1s infinite
+    }
+    @keyframes blink{50%{opacity:.4}}
+
+    .media{display:grid;gap:12px}
+    video,img,iframe{width:100%;border-radius:10px}
+    iframe{height:78vh;background:#fff;border:1px solid var(--border)}
+
     .btn{
-      display:inline-block;padding:8px 14px;border-radius:10px;
-      background:linear-gradient(135deg,var(--primary),var(--secondary));
-      color:#fff;text-decoration:none;font-size:14px;margin:6px 0;
+      display:inline-block;margin:8px 0;
+      padding:7px 14px;background:var(--accent);
+      color:#fff;text-decoration:none;
+      border-radius:6px;font-size:13px
     }
-    .stack img{margin-bottom:10px;}
-    .float-whatsapp{
-      position:fixed;bottom:20px;right:20px;z-index:2000;
+
+    .card{
+      font-size:13px;
+      line-height:1.55;
+
+      background:var(--card);padding:12px;
+      border-radius:10px;margin-bottom:10px;
+      border:1px solid var(--border)
     }
-    .float-whatsapp img{width:70px;height:70px;}
-    @media(max-width:768px){
-      iframe{height:420px}
-      main{padding-top:150px}
+
+    /* EXPERIENCE */
+    .exp-intro{
+      background:var(--softPurple);
+      padding:12px;border-radius:10px;
+      margin-bottom:12px;border:1px solid var(--border)
+    }
+    .exp-card{
+      padding:12px;border-radius:12px;
+      margin-bottom:10px;border-left:5px solid var(--primary)
+    }
+    .exp1{background:var(--softBlue)}
+    .exp2{background:var(--softGreen)}
+    .exp3{background:#fff7ed}
+    .exp4{background:#fefce8}
+    .exp5{background:#f0fdf4}
+
+    /* FLOATING WHATSAPP */
+    .vba-text{
+      font-size:13.5px;
+      line-height:1.7;
+      letter-spacing:0.2px;
+      font-weight:400;
+      color:#1f2937;
+    }
+
+    .float-wa{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:999}
+    .float-wa img{width:64px;height:64px;opacity:0.75;animation:waBlink 2.5s ease-in-out infinite}
+
+    /* MOBILE */
+    @keyframes waBlink{0%{opacity:.55}50%{opacity:.85}100%{opacity:.55}}
+
+@media(max-width:600px){
+      main{padding-top:160px} /* reduced proportionally */
     }
   </style>
 </head>
 <body>
-<!-- ALL LINKS USED AT TOP -->
-<!-- Dashboard video: https://ajithkumarthaivedu.github.io/Storage/image/Dashboard .mp4 -->
-<!-- Dashboard images: https://ajithkumarthaivedu.github.io/Storage/image/Dashboard snap.jpeg , https://ajithkumarthaivedu.github.io/Storage/image/DashboardSnap.jpeg -->
-<!-- Dashboard Excel: https://ajithkumarthaivedu.github.io/Storage/image/Retail_sales.xlsb -->
-<!-- Resume PDF: https://drive.google.com/file/d/1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq/view -->
-<!-- VBA images: https://ajithkumarthaivedu.github.io/Storage/image/VBA .jpeg , https://ajithkumarthaivedu.github.io/Storage/image/Vba.jpeg -->
-<!-- VBA BAS: https://drive.google.com/file/d/1n3W_fRzBJBbfQz1Q_HSwJzrvVxhfNC2b/view -->
-<!-- Cover Letter: https://drive.google.com/file/d/1kNW4vyr91DgQZwGrxKWb83aEwESlQXPi/view -->
-<!-- Appreciation: https://ajithkumarthaivedu.github.io/Storage/image/Best_Performer_Certificate.jpg , https://ajithkumarthaivedu.github.io/Storage/image/Thaivedu Ajithkumar_Mar'22.jpg -->
-
 <header>
   <div class="header-wrap">
-    <div>
-      <div class="name">Ajithkumar Thaivedu</div>
-      <div class="contact">
-        📧 <a href="mailto:ajithkumarthaivedu@gmail.com">ajithkumarthaivedu@gmail.com</a>
-        📞 <a href="tel:+916304909328">+91 6304909328</a>
-        <a href="https://wa.me/916304909328" target="_blank">WhatsApp</a>
-      </div>
+    <div class="title">Ajithkumar Thaivedu</div>
+    <div class="contact">
+      <div>📧 ajithkumarthaivedu@gmail.com <a href="mailto:ajithkumarthaivedu@gmail.com">(Mail)</a></div>
+      <div>📞 +91 6304909328 <a href="tel:+916304909328">(Call)</a> | <a href="https://wa.me/916304909328" target="_blank">WhatsApp</a></div>
     </div>
-    <nav>
-      <button class="active" onclick="openTab('dashboard',this)">Dashboard</button>
-      <button onclick="openTab('resume',this)">Resume</button>
-      <button onclick="openTab('vba',this)">VBA</button>
-      <button onclick="openTab('appreciation',this)">Appreciation</button>
-      <button onclick="openTab('experience',this)">Experience</button>
-      <button onclick="openTab('cover',this)">Cover Letter</button>
-    </nav>
   </div>
+  <div class="divider"></div>
+  <nav id="tabs">
+    <button data-tab="dashboard" class="active">Dashboard</button>
+    <button data-tab="resume">Resume</button>
+    <button data-tab="vba">VBA</button>
+    <button data-tab="appreciation">Appreciation</button>
+    <button data-tab="experience">Experience</button>
+    <button data-tab="cover">Cover Letter</button>
+  </nav>
 </header>
 
 <main>
+  <!-- DASHBOARD -->
   <section id="dashboard" class="active">
     <p class="blink">I am good in Dashboard creation, have experience of 50+ dashboards creation to the business needs</p>
-    <div class="card">
-      <a class="btn" href="https://ajithkumarthaivedu.github.io/Storage/image/Retail_sales.xlsb">Download Sample Sales Excel</a>
-    </div>
-    <div class="card">
-      <video src="https://ajithkumarthaivedu.github.io/Storage/image/Dashboard .mp4" autoplay muted loop playsinline></video>
-    </div>
-    <div class="card stack">
-      <img src="https://ajithkumarthaivedu.github.io/Storage/image/Dashboard snap.jpeg" />
-      <img src="https://ajithkumarthaivedu.github.io/Storage/image/DashboardSnap.jpeg" />
+    <a class="btn" href="https://ajithkumarthaivedu.github.io/Storage/image/Retail_sales.xlsb" download>Download Sample Sales Excel</a>
+    <div class="media">
+      <video src="https://ajithkumarthaivedu.github.io/Storage/image/Dashboard .mp4" autoplay muted loop controls></video>
+      <img src="https://ajithkumarthaivedu.github.io/Storage/image/Dashboard snap.jpeg">
+      <img src="https://ajithkumarthaivedu.github.io/Storage/image/DashboardSnap.jpeg">
     </div>
   </section>
 
+  <!-- RESUME -->
   <section id="resume">
-    <a class="btn" href="https://drive.google.com/uc?id=1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq&export=download">Download Resume (PDF)</a>
+    <a class="btn" href="https://drive.google.com/uc?export=download&id=1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq">Download Resume PDF</a>
     <iframe src="https://drive.google.com/file/d/1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq/preview"></iframe>
-    <a class="btn" href="https://drive.google.com/uc?id=1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq&export=download">Download Resume (PDF)</a>
+    <a class="btn" href="https://drive.google.com/uc?export=download&id=1PA6fU8VUHruCRb4BgQzKzAa8eyg8J6Qq">Download Resume PDF</a>
   </section>
 
+  <!-- VBA -->
   <section id="vba">
-    <p class="blink">Custom functions are created to ease the workflow, exceed Excel limitations and solve complex logic.</p>
-    <p>Multiple lookup functions, correcting improper mobile numbers, replacing helper columns and loops with efficient custom functions.</p>
-    <div class="card stack">
-      <img src="https://ajithkumarthaivedu.github.io/Storage/image/VBA .jpeg" />
-      <img src="https://ajithkumarthaivedu.github.io/Storage/image/Vba.jpeg" />
+    <p class="blink">Advanced VBA custom functions designed to simplify complex Excel workflows.</p>
+    <div class="card vba-text">
+      • Developed multiple custom lookup functions replacing VLOOKUP/XLOOKUP limitations<br>
+      • Corrected improper and inconsistent mobile number formats using reusable VBA logic<br>
+      • Eliminated multiple helper columns by implementing optimized user-defined functions<br>
+      • Replaced looping-heavy calculations with efficient, scalable custom functions<br>
+      • Significantly improved performance, accuracy, and real-world usability
     </div>
-    <a class="btn" href="https://drive.google.com/uc?id=1n3W_fRzBJBbfQz1Q_HSwJzrvVxhfNC2b&export=download">Download .BAS File</a>
+    <a class="btn" href="https://drive.google.com/uc?export=download&id=1n3W_fRzBJBbfQz1Q_HSwJzrvVxhfNC2b">Download .BAS File</a>
+    <div class="media">
+      <img src="https://ajithkumarthaivedu.github.io/Storage/image/VBA .jpeg">
+      <img src="https://ajithkumarthaivedu.github.io/Storage/image/Vba.jpeg">
+    </div>
   </section>
 
+  <!-- APPRECIATION -->
   <section id="appreciation">
     <div class="card">
-      <strong>Best Performer – Q4 2021</strong><br/>
-      Awarded by: Teleperformance<br/>
-      Process: WFM (Flipkart Easycredit)<br/>
-      Reason: Recognized for dedication and commitment towards maintaining business continuity.
-      <hr/>
-      <strong>Best Performer – Q1 2022</strong><br/>
-      Awarded by: Teleperformance<br/>
-      Process: Flipkart Easy Credit<br/>
+      <b>Best Performer – Q4 2021</b><br>
+      Awarded by: Teleperformance<br>
+      Process: WFM (Flipkart Easycredit)<br>
+      Reason: Recognized for dedication and commitment towards maintaining business continuity.<br><br>
+      <b>Best Performer – Q1 2022</b><br>
+      Awarded by: Teleperformance<br>
+      Process: Flipkart Easy Credit<br>
       Reason: Outstanding performance as MIS Executive.
     </div>
-    <div class="card stack">
-      <img src="https://ajithkumarthaivedu.github.io/Storage/image/Best_Performer_Certificate.jpg" />
-      <img src="https://ajithkumarthaivedu.github.io/Storage/image/Thaivedu Ajithkumar_Mar'22.jpg" />
+    <div class="media">
+      <img src="https://ajithkumarthaivedu.github.io/Storage/image/Best_Performer_Certificate.jpg">
+      <img src="https://ajithkumarthaivedu.github.io/Storage/image/Thaivedu Ajithkumar_Mar'22.jpg">
     </div>
   </section>
 
+  <!-- EXPERIENCE -->
   <section id="experience">
-    <div class="card" style="background:linear-gradient(135deg,#1e293b,#020617);border-left:5px solid #22d3ee">
-      <h2 style="color:#22d3ee">Professional Experience</h2>
-      <p><strong>Motherhood Hospitals (Rhea Healthcare Pvt Ltd)</strong><br/>
-      <span style="color:#38bdf8">Sr. MIS Executive | Jun 2024 – Present</span></p>
-      <ul>
-        <li>Automated daily, weekly, monthly reports using VBA macros</li>
-        <li>Designed dashboards for management and client reporting</li>
-        <li>Managed workflow analysis</li>
-      </ul>
-      <hr/>
-      <p><strong>Ileads Auxiliary Services Pvt Ltd</strong><br/>
-      <span style="color:#38bdf8">Sr. MIS Executive | Mar 2024 – May 2024</span></p>
-      <ul><li>Delivered client MIS reports for INDKAL, Sodexo, Visit Health</li></ul>
-      <hr/>
-      <p><strong>Teleperformance</strong><br/>
-      <span style="color:#38bdf8">Sr. MIS Executive | Aug 2021 – Mar 2024</span></p>
-      <ul>
-        <li>MIS reporting for Flipkart Easy Credit & Toyota Financial Services</li>
-        <li>Built efficiency trackers and workflow dashboards</li>
-      </ul>
-      <hr/>
-      <p><strong>Hotel Saravana Bhavan</strong><br/>
-      <span style="color:#38bdf8">HR MIS Executive | Jul 2019 – Jul 2021</span></p>
-      <p><strong>Dinesh Engineering Industries</strong><br/>
-      <span style="color:#38bdf8">Maintenance Incharge | Aug 2016 – Jun 2019</span></p>
+    <div class="exp-intro">
+      Experienced MIS professional with strong expertise in dashboarding, automation, and business reporting across healthcare, BPO, and service industries.
     </div>
+    <div class="exp-card exp1"><b>Motherhood Hospitals (Rhea Healthcare Pvt Ltd)</b><br>Sr. MIS Executive | Jun 2024 – Present</div>
+    <div class="exp-card exp2"><b>Ileads Auxiliary Services Pvt Ltd</b><br>Sr. MIS Executive | Mar 2024 – May 2024</div>
+    <div class="exp-card exp3"><b>Teleperformance</b><br>Sr. MIS Executive | Aug 2021 – Mar 2024</div>
+    <div class="exp-card exp4"><b>Hotel Saravana Bhavan</b><br>HR MIS Executive | Jul 2019 – Jul 2021</div>
+    <div class="exp-card exp5"><b>Dinesh Engineering Industries</b><br>Maintenance Incharge | Aug 2016 – Jun 2019</div>
   </section>
 
+  <!-- COVER LETTER -->
   <section id="cover">
-    <a class="btn" href="https://drive.google.com/uc?id=1kNW4vyr91DgQZwGrxKWb83aEwESlQXPi&export=download">Download Cover Letter</a>
+    <a class="btn" href="https://drive.google.com/uc?export=download&id=1kNW4vyr91DgQZwGrxKWb83aEwESlQXPi">Download Cover Letter</a>
     <iframe src="https://drive.google.com/file/d/1kNW4vyr91DgQZwGrxKWb83aEwESlQXPi/preview"></iframe>
   </section>
 </main>
 
-<a class="float-whatsapp" href="https://wa.me/916304909328" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+<a class="float-wa" href="https://wa.me/916304909328" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
 <script>
-  function openTab(id,btn){
-    document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  const buttons=document.querySelectorAll('nav button');
+  const sections=document.querySelectorAll('section');
+  let autoTour=true;
+
+  buttons.forEach(btn=>{
+    btn.onclick=()=>{
+      autoTour=false;
+      activate(btn.dataset.tab);
+    };
+  });
+
+  function activate(id){
+    buttons.forEach(b=>b.classList.remove('active'));
+    sections.forEach(s=>s.classList.remove('active'));
+    document.querySelector(`[data-tab="${id}"]`).classList.add('active');
     document.getElementById(id).classList.add('active');
-    document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    window.scrollTo({top:0,behavior:'smooth'});
   }
+
+  let i=0;
+  setInterval(()=>{
+    if(!autoTour) return;
+    activate(buttons[i%buttons.length].dataset.tab);
+    i++;
+  },2000);
 </script>
 </body>
 </html>
